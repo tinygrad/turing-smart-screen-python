@@ -196,9 +196,9 @@ class LcdCommRevC(LcdComm):
         # This command reads LCD answer on serial link, so it bypasses the queue
         self.sub_revision = SubRevision.UNKNOWN
         self._send_command(Command.HELLO, bypass_queue=True)
-        response = str(self.lcd_serial.read(22).decode())
+        response = self.lcd_serial.read(22)
         self.lcd_serial.flushInput()
-        if response.startswith(SubRevision.FIVEINCH.value):
+        if str(response.decode()).startswith(SubRevision.FIVEINCH.value):
             self.sub_revision = SubRevision.FIVEINCH
         else:
             logger.warning("Display returned unknown sub-revision on Hello answer (%s)" % str(response))
@@ -211,11 +211,12 @@ class LcdCommRevC(LcdComm):
     def Reset(self):
         logger.info("Display reset (COM port may change)...")
         # Reset command bypasses queue because it is run when queue threads are not yet started
-        self._send_command(Command.RESTART, bypass_queue=True)
-        self.closeSerial()
+        #self._send_command(Command.RESTART, bypass_queue=True)
+        #self.closeSerial()
         # Wait for display reset then reconnect
-        time.sleep(15)
-        self.openSerial()
+        #time.sleep(10)
+        #self.openSerial()
+        #self._send_command(Command.TURNON, bypass_queue=True)
 
     def Clear(self):
         # This hardware does not implement a Clear command: display a blank image on the whole screen
@@ -233,7 +234,8 @@ class LcdCommRevC(LcdComm):
         logger.info("Calling ScreenOff")
         self._send_command(Command.STOP_VIDEO)
         self._send_command(Command.STOP_MEDIA, readsize=1024)
-        self._send_command(Command.TURNOFF)
+        self._send_command(Command.SET_BRIGHTNESS, payload=bytearray([0]))
+        #self._send_command(Command.TURNOFF)
 
     def ScreenOn(self):
         logger.info("Calling ScreenOn")

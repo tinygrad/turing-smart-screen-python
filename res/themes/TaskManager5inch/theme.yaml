@@ -16,7 +16,7 @@ static_images:
 
 static_text:
   CPU_MODEL:
-    TEXT: Core I9 I10900K
+    TEXT: EPYC 7532
     X: 515
     Y: 20
     FONT: roboto-mono/RobotoMono-Regular.ttf
@@ -24,7 +24,7 @@ static_text:
     FONT_COLOR: 0, 0, 0
     BACKGROUND_IMAGE: background.png
   GPU_MODEL:
-    TEXT: RTX3080TI
+    TEXT: 7900XTX
     X: 163
     Y: 411
     FONT: roboto-mono/RobotoMono-Regular.ttf
