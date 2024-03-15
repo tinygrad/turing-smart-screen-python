@@ -1,12 +1,12 @@
 ---
-define: &font 'Source_Code_Pro/static/SourceCodePro-Regular.ttf'
-define: &smallfont 14
-define: &midfont 20
-define: &bigfont 28
-define: &black "0, 0, 0"
-define: &background background.png
-define: &ipaddress 192.186.0.1
-define: &linecolor 100, 100, 100
+define_font: &font Source_Code_Pro/static/SourceCodePro-Regular.ttf
+define_color: &black "0, 0, 0"
+define_background: &background background.png
+define_ip: &ipaddress 192.186.0.1
+define_linecolor: &linecolor 100, 100, 100
+define_smallfont: &smallfont 14
+define_midfont: &midfont 20
+define_bigfont: &bigfont 28
 
 author: "@philipkopylov"
 
