@@ -1,0 +1,327 @@
+---
+define_font: &font Source_Code_Pro/static/SourceCodePro-Regular.ttf
+define_color: &black "0, 0, 0"
+define_background: &background background.png
+define_ip: &ipaddress 192.186.0.1
+define_linecolor: &linecolor 100, 100, 100
+define_smallfont: &smallfont 14
+define_midfont: &midfont 20
+define_bigfont: &bigfont 28
+
+author: "@philipkopylov"
+
+display:
+  DISPLAY_SIZE: 5"
+  DISPLAY_ORIENTATION: landscape
+  DISPLAY_RGB_LED: 255, 255, 255
+
+static_images:
+  BACKGROUND:
+    PATH: background.png
+    X: 0
+    Y: 0
+    WIDTH: 800
+    HEIGHT: 480
+
+static_text:
+  CPU_MODEL:
+    TEXT: EPIC 7532 · 
+    X: 10
+    Y: 10
+    FONT_SIZE: *smallfont
+    BACKGROUND_IMAGE: *background
+  CPU_PERCENT:
+    TEXT: "%"
+    X: 45
+    Y: 40
+    FONT: *font
+    FONT_SIZE: *midfont
+    BACKGROUND_IMAGE: *background
+  MEMORY_PERCENT:
+    TEXT: "%"
+    X: 45
+    Y: 184
+    FONT: *font
+    FONT_SIZE: *midfont
+    BACKGROUND_IMAGE: *background
+  MEMORY_SEPARATOR:
+    TEXT: /
+    X: 65
+    Y: 185
+    FONT: *font
+    FONT_SIZE: *smallfont
+    BACKGROUND_IMAGE: *background
+
+  MEMORY:
+    TEXT: MEMORY
+    X: 10
+    Y: 156
+    FONT: *font
+    FONT_SIZE: *smallfont
+    FONT_COLOR: *black
+    BACKGROUND_IMAGE: *background
+  MEMORY_TOTAL:
+    TEXT: "30517"
+    X: 82
+    Y: 180
+    FONT: *font
+    FONT_SIZE: *bigfont
+    FONT_COLOR: *black
+    BACKGROUND_IMAGE: *background
+
+  DISK:
+    TEXT: DISK
+    X: 10
+    Y: 293
+    FONT: *font
+    FONT_SIZE: *smallfont
+    FONT_COLOR: *black
+    BACKGROUND_IMAGE: *background
+  DISK_PERCENT:
+    TEXT: "%"
+    X: 45
+    Y: 320
+    FONT: *font
+    FONT_SIZE: *midfont
+    BACKGROUND_IMAGE: *background
+  IP:
+    TEXT: IP
+    X: 10
+    Y: 422
+    FONT: *font
+    FONT_SIZE: *smallfont
+    FONT_COLOR: *black
+    BACKGROUND_IMAGE: *background
+  IPADDRESS:
+    TEXT: 192.168.0.1
+    X: 10
+    Y: 448
+    FONT: *font
+    FONT_SIZE: *midfont
+    FONT_COLOR: *black
+    BACKGROUND_IMAGE: *background
+  GPU0:
+    TEXT: GPU0 ·
+    X: 278
+    Y: 10
+    FONT: *font
+    FONT_SIZE: *smallfont
+    FONT_COLOR: *black
+    BACKGROUND_IMAGE: *background
+  GPU1:
+    TEXT: GPU1
+    X: 546
+    Y: 10
+    FONT: *font
+    FONT_SIZE: *smallfont
+    FONT_COLOR: *black
+    BACKGROUND_IMAGE: *background
+  GPU2:
+    TEXT: GPU2
+    X: 278
+    Y: 170
+    FONT: *font
+    FONT_SIZE: *smallfont
+    FONT_COLOR: *black
+    BACKGROUND_IMAGE: *background
+  GPU3:
+    TEXT: GPU3
+    X: 546
+    Y: 170
+    FONT: *font
+    FONT_SIZE: *smallfont
+    FONT_COLOR: *black
+    BACKGROUND_IMAGE: *background
+  GPU4:
+    TEXT: GPU4
+    X: 278
+    Y: 332
+    FONT: *font
+    FONT_SIZE: *smallfont
+    FONT_COLOR: *black
+    BACKGROUND_IMAGE: *background
+  GPU5:
+    TEXT: GPU5
+    X: 546
+    Y: 332
+    FONT: *font
+    FONT_SIZE: *smallfont
+    FONT_COLOR: *black
+    BACKGROUND_IMAGE: *background
+  GPU0_PERCENT:
+    TEXT: "%"
+    X: 315
+    Y: 39
+    FONT: *font
+    FONT_SIZE: *midfont
+    BACKGROUND_IMAGE: *background
+
+STATS:
+  CPU:
+    PERCENTAGE:
+      INTERVAL: 1
+      LINE_GRAPH:
+        SHOW: True
+        X: 0
+        Y: 75
+        WIDTH: 267
+        HEIGHT: 61
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        HISTORY_SIZE: 60
+        AUTOSCALE: False
+        LINE_COLOR: 100, 100, 100
+        AXIS: False
+        BACKGROUND_IMAGE: *background
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: False
+        X: -8
+        Y: 35
+        FONT: *font
+        FONT_SIZE: *bigfont
+        FONT_COLOR: *black
+        BACKGROUND_IMAGE: *background
+    TEMPERATURE:
+      INTERVAL: 5
+      LINE_GRAPH:
+        SHOW: False
+        X: 20
+        Y: 20
+        WIDTH: 126
+        HEIGHT: 70
+        MIN_VALUE: 30
+        MAX_VALUE: 120
+        HISTORY_SIZE: 20
+        AUTOSCALE: True
+        LINE_COLOR: 0, 128, 192
+        AXIS: False
+        # BACKGROUND_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 100
+        Y: 10
+        FONT: *font
+        FONT_SIZE: *smallfont
+        FONT_COLOR: *black
+        BACKGROUND_IMAGE: *background
+  GPU:
+    INTERVAL: 1
+    PERCENTAGE:
+      LINE_GRAPH:
+        SHOW: True
+        X: 268
+        Y: 70
+        WIDTH: 267
+        HEIGHT: 90
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        HISTORY_SIZE: 20
+        AUTOSCALE: False
+        LINE_COLOR: *linecolor
+        AXIS: False
+        AXIS_COLOR: 255, 135, 0
+        # BACKGROUND_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: *background
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: False
+        X: 260
+        Y: 35
+        FONT: *font
+        FONT_SIZE: *bigfont
+        FONT_COLOR: *black
+        BACKGROUND_IMAGE: *background
+    
+    TEMPERATURE:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 325
+        Y: 10
+        FONT: *font
+        FONT_SIZE: *smallfont
+        FONT_COLOR: *black
+        BACKGROUND_IMAGE: *background
+
+  MEMORY:
+    INTERVAL: 5
+    VIRTUAL:
+      GRAPH:
+        SHOW: True
+        X: 10
+        Y: 220
+        WIDTH: 250  
+        HEIGHT: 20
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        HISTORY_SIZE: 20
+        AUTOSCALE: False
+        AXIS: False
+        AXIS_COLOR: 255, 135, 0
+        BAR_COLOR: *linecolor
+        BACKGROUND_COLOR: *black
+        BACKGROUND_IMAGE: *background
+      PERCENT_TEXT:
+        SHOW: True
+        SHOW_UNIT: False
+        X: -8
+        Y: 180
+        FONT: *font
+        FONT_SIZE: *bigfont
+        FONT_COLOR: *black
+        BACKGROUND_IMAGE: *background
+  DISK:
+    INTERVAL: 5
+    USED:
+      GRAPH:
+        SHOW: True
+        X: 10
+        Y: 350
+        WIDTH: 250  
+        HEIGHT: 20
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        HISTORY_SIZE: 20
+        AUTOSCALE: False
+        AXIS: False
+        AXIS_COLOR: 255, 135, 0
+        BAR_COLOR: *linecolor
+        BACKGROUND_COLOR: *black
+        BACKGROUND_IMAGE: *background
+      PERCENT_TEXT:
+        SHOW: True
+        SHOW_UNIT: False
+        X: -8
+        Y: 315
+        FONT: *font
+        FONT_SIZE: *bigfont
+        FONT_COLOR: *black
+        BACKGROUND_IMAGE: *background
+  
+  # DATE:
+  #   INTERVAL: 1
+  #   DAY:
+  #     TEXT:
+  #       FORMAT: medium
+  #       SHOW: True
+  #       X: 388
+  #       Y: 412
+  #       FONT: roboto-mono/RobotoMono-Regular.ttf
+  #       FONT_SIZE: 26
+  #       FONT_COLOR: 0, 0, 0
+  #       # BACKGROUND_COLOR: 50, 50, 50
+  #       BACKGROUND_IMAGE: background.png
+  #   HOUR: # Format (12/24h, timezone translations) will match your computer locale
+  #     TEXT:
+  #       FORMAT: medium # short (6:48 PM) / medium (6:48:53 PM) / long (6:48:53 PM UTC) / full (6:48:53 PM Coordinated Universal Time)
+  #       SHOW: True
+  #       X: 388
+  #       Y: 380
+  #       FONT: roboto-mono/RobotoMono-Regular.ttf
+  #       FONT_SIZE: 26
+  #       FONT_COLOR: 0, 0, 0
+  #       # BACKGROUND_COLOR: 50, 50, 50
+  #       BACKGROUND_IMAGE: background.png
