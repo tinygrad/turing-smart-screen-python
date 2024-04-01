@@ -241,7 +241,7 @@ class LcdCommRevC(LcdComm):
         logger.info("Calling ScreenOn")
         self._send_command(Command.STOP_VIDEO)
         self._send_command(Command.STOP_MEDIA, readsize=1024)
-        # self._send_command(Command.SET_BRIGHTNESS, payload=bytearray([255]))
+        self._send_command(Command.SET_BRIGHTNESS, payload=bytearray([255]))
 
     def SetBrightness(self, level: int = 25):
         # logger.info("Call SetBrightness")
